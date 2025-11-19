@@ -94,7 +94,7 @@ theme_set(VTHEME)
 # FUNCTION 1: LABEL SPREAD
 
 #FUNCTION TO ASSURE NO LABEL OVERLAP
-LABLR <- function(x, min_dist = 6) {
+LABLR <- function(x, min_dist = 5) {
   x_sorted <- sort(x)
   adjusted <- x_sorted
   for (i in 2:length(x_sorted)) {
@@ -118,12 +118,12 @@ LABLR <- function(x, min_dist = 6) {
 
 
 RSHPR <- function(df, id_col="VAR", names_to = "TIME", values_to = "VAL") {
-    df %>%
+    df  %>%
     pivot_longer(
       cols = -all_of(id_col),  # keep the id column fixed
       names_to = names_to,
       values_to = values_to
-    )
+    )%>% mutate(across(c(TIME, VAL), as.numeric))
 }
   #df_input <- RSHPR(df_wide)
 
