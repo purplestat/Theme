@@ -1,4 +1,4 @@
-set_theme <- getOption("pick_theme", default = "dark")
+set_theme <- getOption("pick_theme", default = "light")
 
 if (set_theme == "dark") {
   cat("Dark theme activated\n")
@@ -21,15 +21,42 @@ if (set_theme == "dark") {
     
     # title, subtitle, caption, legend:
     plot.title = element_text(hjust = 0,family =TITLE[5],face="bold",size =50,color=VCOL[5]),
-    plot.subtitle = element_text(hjust = 0,family =TITLE[4],size = 32,color=VCOL[4]),
+    plot.subtitle = element_text(hjust = 0,family =TITLE[4],size = 32,color=VCOL[4],margin = margin(b = 15)),
     plot.caption = element_text( color = "#403C53", hjust = 0,size=12),
     legend.position = "none")
-  theme_set(VTHEME)
 } else if (set_theme == "light") {
   cat("Light theme activated\n")
   # light theme code here
+  VTHEME <- theme(
+    panel.border = element_blank(),                                    
+    plot.margin = margin(t = 0, r = 145, b = 0, l = 0),               
+    
+    plot.background = element_rect(fill = "#ffffff", color = NA),      
+    panel.background = element_rect(fill = "#ffffff", color = NA),    
+    panel.grid.major = element_line(color = "gray90"),    
+    panel.grid.minor = element_line(color = "gray90"),   
+    panel.grid.major.x = element_blank(),      
+    panel.grid.minor.x = element_blank(),
+    axis.line.x = element_blank(),                                   
+    axis.line.y = element_blank(),                                    
+    
+    axis.title = element_text(color = "gray90", size = 22, face="bold"),
+    axis.title.x = element_blank(),
+    axis.ticks = element_line(color = "gray90" , linewidth = 1),      
+    axis.ticks.length=unit(.25, "cm"),
+    axis.text = element_text(color = "gray60", size = 22),
+    
+    plot.title = element_text(hjust = 0,color = "gray20", size = 50, face = "bold",),
+    plot.subtitle = element_text(hjust = 0,size = 32,color = "gray50",margin = margin(b = 15)),
+    plot.caption = element_text( color = "gray90", hjust = 0,size=15),
+    legend.title=element_blank(),
+    legend.position = "top", 
+    legend.text = element_text(size=24,color = "gray60"),
+    legend.key.size = unit(.5, 'cm'),
+    legend.direction = "horizontal"
+  )
 }
-
+theme_set(VTHEME)
 
 
 #FUNCTION TO ASSURE NO LABEL OVERLAP
@@ -39,6 +66,5 @@ LAB_VAL <- function(x, min_dist = 6) {
   for (i in 2:length(x_sorted)) {
     if ((adjusted[i] - adjusted[i-1]) < min_dist) {
       adjusted[i] <- adjusted[i-1] + min_dist}}}
-
 
 
