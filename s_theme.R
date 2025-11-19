@@ -55,6 +55,33 @@ if (set_theme == "dark") {
     legend.key.size = unit(.5, 'cm'),
     legend.direction = "horizontal"
   )
+}else if (set_theme == "clean") {
+  cat("Clean theme activated\n")
+  # light theme code here
+  VTHEME <- theme(
+    panel.border = element_blank(),                                    
+    plot.margin = margin(t = 15, r = 15, b = 15, l = 15),               
+    
+    plot.background = element_blank(),     
+    panel.background = element_blank(),   
+    panel.grid.major = element_blank(),   
+    panel.grid.minor = element_blank(),  
+    panel.grid.major.x = element_blank(),      
+    panel.grid.minor.x = element_blank(),
+    axis.line.x = element_blank(),                                   
+    axis.line.y = element_blank(),                                    
+    
+    axis.title = element_blank(),
+    axis.title.x = element_blank(),
+    axis.ticks = element_blank(),     
+    axis.ticks.length=unit(.0, "cm"),
+    axis.text = element_blank(),
+    
+    plot.title = element_text(hjust = 0,color = "gray20", size = 50, face = "bold"),
+    plot.subtitle = element_text(hjust = 0,size = 32,color = "gray50",margin = margin(b = 15)),
+    plot.caption = element_text( color = "gray90", hjust = 0,size=15),
+    legend.position = "none"
+  )
 }
 theme_set(VTHEME)
 
