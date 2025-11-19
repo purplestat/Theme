@@ -17,12 +17,12 @@ if (set_theme == "dark") {
     
     axis.title = element_blank(),                                      # axis title
     axis.ticks = element_line(color = "#403C53", linewidth = 0),       # axis ticks
-    axis.text = element_text(color = "#403C53",size=14),               # axis text
+    axis.text = element_text(color = "#403C53",size=15),               # axis text
     
     # title, subtitle, caption, legend:
     plot.title = element_text(hjust = 0,family =TITLE[5],face="bold",size =50,color=VCOL[5]),
     plot.subtitle = element_text(hjust = 0,family =TITLE[4],size = 32,color=VCOL[4],margin = margin(b = 15)),
-    plot.caption = element_text( color = "#403C53", hjust = 0,size=12),
+    plot.caption = element_text( color = "#403C53", hjust = 0,size=13),
     legend.position = "none")
 } else if (set_theme == "light") {
   cat("Light theme activated\n")
