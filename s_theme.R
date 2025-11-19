@@ -1,5 +1,3 @@
-r
-
 set_theme <- getOption("pick_theme", default = "dark")
 
 if (set_theme == "dark") {
@@ -41,5 +39,6 @@ LAB_VAL <- function(x, min_dist = 6) {
   for (i in 2:length(x_sorted)) {
     if ((adjusted[i] - adjusted[i-1]) < min_dist) {
       adjusted[i] <- adjusted[i-1] + min_dist}}}
+
 
 
