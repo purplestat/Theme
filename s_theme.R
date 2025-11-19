@@ -1,4 +1,6 @@
+# CONTAINING: [a] THEMES, [b] LABLR (spread labels), [c] RSHPR (reshape long), [d] INDXR (index ts)
 
+library(tidyr) #Function2
 library(dplyr) #Function3
 
 set_theme <- getOption("pick_theme", default = "light")
@@ -114,7 +116,7 @@ LABLR <- function(x, min_dist = 6) {
   #   `2022` = sample(50:100, 3, replace = TRUE),
   #   check.names = FALSE)
 
-library(tidyr)
+
 RSHPR <- function(df, id_col="VAR", names_to = "TIME", values_to = "VAL") {
     df %>%
     pivot_longer(
@@ -124,6 +126,7 @@ RSHPR <- function(df, id_col="VAR", names_to = "TIME", values_to = "VAL") {
     )
 }
   #df_input <- RSHPR(df_wide)
+
 
 #########
 # FUNCTION 3: RESHAPER WIDE -> LONG (N x N :: VAR + YEAR_x)
