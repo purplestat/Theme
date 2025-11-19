@@ -1,3 +1,6 @@
+
+library(dplyr) #Function3
+
 set_theme <- getOption("pick_theme", default = "light")
 
 if (set_theme == "dark") {
@@ -89,13 +92,13 @@ theme_set(VTHEME)
 # FUNCTION 1: LABEL SPREAD
 
 #FUNCTION TO ASSURE NO LABEL OVERLAP
-LAB_VAL <- function(x, min_dist = 6) {
+LABLR <- function(x, min_dist = 6) {
   x_sorted <- sort(x)
   adjusted <- x_sorted
   for (i in 2:length(x_sorted)) {
     if ((adjusted[i] - adjusted[i-1]) < min_dist) {
       adjusted[i] <- adjusted[i-1] + min_dist}}
-  return(rev(adjusted)) 
+  return(adjusted)
   }
 #
 
@@ -103,21 +106,36 @@ LAB_VAL <- function(x, min_dist = 6) {
 #########
 # FUNCTION 2: RESHAPER WIDE -> LONG (N x N :: VAR + YEAR_x)
 
-# df_wide <- data.frame(
-#   VAR = c("A", "B", "C"),
-#   `2020` = sample(50:100, 3, replace = TRUE),
-#   `2021` = sample(50:100, 3, replace = TRUE),
-#   `2022` = sample(50:100, 3, replace = TRUE),
-#   check.names = FALSE 
-# )
+  #SAMPLEDATA
+  # df_wide <- data.frame(
+  #   VAR = c("A", "B", "C"),
+  #   `2020` = sample(50:100, 3, replace = TRUE),
+  #   `2021` = sample(50:100, 3, replace = TRUE),
+  #   `2022` = sample(50:100, 3, replace = TRUE),
+  #   check.names = FALSE)
+
 library(tidyr)
 RSHPR <- function(df, id_col="VAR", names_to = "TIME", values_to = "VAL") {
-  df_long <- df %>%
+    df %>%
     pivot_longer(
       cols = -all_of(id_col),  # keep the id column fixed
       names_to = names_to,
       values_to = values_to
     )
-  return(df_long)
 }
-# df_input <- RSHPR(df_wide)
+  #df_input <- RSHPR(df_wide)
+
+#########
+# FUNCTION 3: RESHAPER WIDE -> LONG (N x N :: VAR + YEAR_x)
+
+
+INDXR <- function(df, time_col = "TIME", var_col = "VAR", val_col = "VAL") {
+  df %>%
+    group_by(across(all_of(var_col))) %>%
+    arrange(across(all_of(time_col))) %>%
+    mutate(
+      !!sym(val_col) := (!!sym(val_col) / first(!!sym(val_col))) * 100
+    ) %>%
+    ungroup()
+}
+  #df_input2 <- INDXR(df_input)
