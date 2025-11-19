@@ -106,7 +106,7 @@ LABLR <- function(x, min_dist = 6) {
 
 
 #########
-# FUNCTION 2: RESHAPER WIDE -> LONG (N x N :: VAR + YEAR_x)
+# FUNCTION 2: RESHAPER WIDE (N x N :: VAR + YEAR_x) -> LONG (N x 3 :: TIME + VAR + VAL)
 
   #SAMPLEDATA
   # df_wide <- data.frame(
@@ -129,7 +129,7 @@ RSHPR <- function(df, id_col="VAR", names_to = "TIME", values_to = "VAL") {
 
 
 #########
-# FUNCTION 3: RESHAPER WIDE -> LONG (N x N :: VAR + YEAR_x)
+# FUNCTION 3: INDXR (N x 3 :: TIME + VAR + VAL)
 
 
 INDXR <- function(df, time_col = "TIME", var_col = "VAR", val_col = "VAL") {
