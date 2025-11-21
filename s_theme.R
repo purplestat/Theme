@@ -1,5 +1,6 @@
 # CONTAINING: [a] THEMES, [b] LABLR (spread labels), [c] RSHPR (reshape long), [d] INDXR (index ts)
 
+library(ggplot2) #Base
 library(tidyr) #Function2
 library(dplyr) #Function3
 
@@ -142,3 +143,4 @@ INDXR <- function(df, time_col = "TIME", var_col = "VAR", val_col = "VAL") {
     ungroup()
 }
   #df_input2 <- INDXR(df_input)
+
