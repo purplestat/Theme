@@ -3,6 +3,7 @@
 library(ggplot2) #Base
 library(tidyr) #Function2
 library(dplyr) #Function3
+options(scipen = 999)  # increase penalty for scientific notation
 
 set_theme <- getOption("pick_theme", default = "light")
 
@@ -52,8 +53,8 @@ if (set_theme == "dark") {
     axis.ticks.length=unit(.25, "cm"),
     axis.text = element_text(color = "gray60", size = 22),
     
-    plot.title = element_text(hjust = 0,color = "gray20", size = 50, face = "bold",),
-    plot.subtitle = element_text(hjust = 0,size = 32,color = "gray50",margin = margin(b = 15)),
+    plot.title = element_text(hjust = 0,color = "gray20", size = 40, face = "bold",),
+    plot.subtitle = element_text(hjust = 0,size = 28,color = "gray50",margin = margin(b = 15)),
     plot.caption = element_text( color = "gray90", hjust = 0,size=15),
     legend.title=element_blank(),
     legend.position = "top", 
