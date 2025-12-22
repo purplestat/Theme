@@ -98,7 +98,7 @@ themes_list <- list(
   "fbdark"  = t_fbdark
 )
 
-go_theme() <- function() {
+go_theme <- function() {
   option_a <- getOption("pick_theme", "basic")  # default to "light"
   option_b <- getOption("clean", FALSE)
   
