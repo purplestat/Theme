@@ -94,7 +94,7 @@ t_o_clean <- theme(
 themes_list <- list(
   "basic" = t_basic,
   "fblight" = t_fblight,
-  "fbdark"  = t_fbdark,
+  "fbdark"  = t_fbdark
 )
 
 get_plot_theme <- function() {
