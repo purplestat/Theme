@@ -7,6 +7,7 @@ options(scipen = 999)  # increase penalty for scientific notation
 
 #########
 # 0a: Define Themes 
+theme_set(theme_grey()) 
 
 t_default <- theme(
   plot.title.position = "plot",
@@ -97,7 +98,7 @@ themes_list <- list(
   "fbdark"  = t_fbdark
 )
 
-get_plot_theme <- function() {
+go_theme() <- function() {
   option_a <- getOption("pick_theme", "basic")  # default to "light"
   option_b <- getOption("clean", FALSE)
   
@@ -108,7 +109,7 @@ get_plot_theme <- function() {
   
   return(th)
 }
-theme_set(th)
+theme_set(go_theme())
 
 #########
 # FUNCTION 1: LABEL SPREAD
