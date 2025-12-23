@@ -21,7 +21,9 @@ t_default <- theme(
   axis.ticks.length=unit(.25, "cm"),                                 # tick length
   axis.title.x = element_blank(),                                    # x title
   legend.title=element_blank(),                                      # legend title
-  legend.key.size = unit(.5, 'cm'))                                  # legend key size
+  legend.key.size = unit(.5, 'cm')),                                 # legend key size
+  legend.background = element_rect(fill = NA, color = NA)            # background color of the legend box
+  )
 
 t_basic<- theme(    
   plot.background = element_rect(fill = "#ffffff", color = NA),      
